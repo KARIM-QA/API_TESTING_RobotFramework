@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20230921 18:07:48.120" rpa="false" schemaversion="4">
+<suite id="s1" name="Get List Videogames" source="K:\QaBoost\RobotFramework_REST_API\API_TESTING_RF\VideoGame_API\get_list_videogames.robot">
+<test id="s1-t1" name="Get_List_videosgames" line="12">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mySession</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230921 18:07:48.478" level="INFO">Creating Session using : alias=mySession, url=http://localhost:8080, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20230921 18:07:48.477" endtime="20230921 18:07:48.480"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mySession</arg>
+<arg>/app/videogames</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20230921 18:07:48.480" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20230921 18:07:48.494" level="INFO">GET Request : url=http://localhost:8080/app/videogames 
+ path_url=/app/videogames 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20230921 18:07:48.501" level="INFO">GET Response : url=http://localhost:8080/app/videogames 
+ status=200, reason= 
+ headers={'Content-Type': 'application/xml', 'Content-Length': '1862', 'Date': 'Thu, 21 Sep 2023 16:07:48 GMT'} 
+ body=&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGames&gt;&lt;videoGame category="Shooter" rating="Universal"&gt;&lt;id&gt;1&lt;/id&gt;&lt;name&gt;Resident Evil 4&lt;/name&gt;&lt;releaseDate&gt;2005-10-01T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;85&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Universal"&gt;&lt;id&gt;2&lt;/id&gt;&lt;name&gt;Gran Turismo 3&lt;/name&gt;&lt;releaseDate&gt;2001-03-10T00:00:00+01:00&lt;/releaseDate&gt;&lt;reviewScore&gt;91&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;3&lt;/id&gt;&lt;name&gt;Tetris&lt;/name&gt;&lt;releaseDate&gt;1984-06-25T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Platform" rating="Universal"&gt;&lt;id&gt;4&lt;/id&gt;&lt;name&gt;Super Mario 64&lt;/name&gt;&lt;releaseDate&gt;1996-10-20T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Adventure" rating="PG-13"&gt;&lt;id&gt;5&lt;/id&gt;&lt;name&gt;The Legend of Zelda: Ocarina of Time&lt;/name&gt;&lt;releaseDate&gt;1998-12-10T00:00:00+01:00&lt;/releaseDate&gt;&lt;reviewScore&gt;93&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Shooter" rating="Mature"&gt;&lt;id&gt;6&lt;/id&gt;&lt;name&gt;Doom&lt;/name&gt;&lt;releaseDate&gt;1993-02-18T00:00:00+01:00&lt;/releaseDate&gt;&lt;reviewScore&gt;81&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Puzzle" rating="Universal"&gt;&lt;id&gt;7&lt;/id&gt;&lt;name&gt;Minecraft&lt;/name&gt;&lt;releaseDate&gt;2011-12-05T00:00:00+01:00&lt;/releaseDate&gt;&lt;reviewScore&gt;77&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Strategy" rating="Universal"&gt;&lt;id&gt;8&lt;/id&gt;&lt;name&gt;SimCity 2000&lt;/name&gt;&lt;releaseDate&gt;1994-09-11T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;88&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="RPG" rating="PG-13"&gt;&lt;id&gt;9&lt;/id&gt;&lt;name&gt;Final Fantasy VII&lt;/name&gt;&lt;releaseDate&gt;1997-08-20T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;97&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;videoGame category="Driving" rating="Mature"&gt;&lt;id&gt;10&lt;/id&gt;&lt;name&gt;Grand Theft Auto III&lt;/name&gt;&lt;releaseDate&gt;2001-04-23T00:00:00+02:00&lt;/releaseDate&gt;&lt;reviewScore&gt;90&lt;/reviewScore&gt;&lt;/videoGame&gt;&lt;/videoGames&gt; 
+ </msg>
+<msg timestamp="20230921 18:07:48.502" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230921 18:07:48.480" endtime="20230921 18:07:48.502"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230921 18:07:48.503" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20230921 18:07:48.502" endtime="20230921 18:07:48.503"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20230921 18:07:48.503" endtime="20230921 18:07:48.505"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Status code is :${status_code}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.505" endtime="20230921 18:07:48.506"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20230921 18:07:48.507" level="INFO">${body} = &lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;videoGames&gt;&lt;videoGame category="Shooter" rating="Universal"&gt;&lt;id&gt;1&lt;/id&gt;&lt;name&gt;Resident Evil 4&lt;/name&gt;&lt;releaseDate&gt;2005-10-01T00:00:00+02:00&lt;/releas...</msg>
+<status status="PASS" starttime="20230921 18:07:48.506" endtime="20230921 18:07:48.507"/>
+</kw>
+<kw name="Parse Xml" library="XML">
+<var>${xml_root}</var>
+<arg>${body}</arg>
+<doc>Parses the given XML file or string into an element structure.</doc>
+<msg timestamp="20230921 18:07:48.508" level="INFO">${xml_root} = &lt;Element 'videoGames' at 0x00000254D2C4A0C0&gt;</msg>
+<status status="PASS" starttime="20230921 18:07:48.507" endtime="20230921 18:07:48.508"/>
+</kw>
+<kw name="Get Elements" library="XML">
+<var>${video_games}</var>
+<arg>${xml_root}</arg>
+<arg>videoGame</arg>
+<doc>Returns a list of elements in the ``source`` matching the ``xpath``.</doc>
+<msg timestamp="20230921 18:07:48.509" level="INFO">${video_games} = [&lt;Element 'videoGame' at 0x00000254D2C4A250&gt;, &lt;Element 'videoGame' at 0x00000254D2C4A7A0&gt;, &lt;Element 'videoGame' at 0x00000254D2C4A8E0&gt;, &lt;Element 'videoGame' at 0x00000254D2C4AB10&gt;, &lt;Element 'videoGame...</msg>
+<status status="PASS" starttime="20230921 18:07:48.508" endtime="20230921 18:07:48.509"/>
+</kw>
+<for flavor="IN">
+<var>${video_game}</var>
+<value>@{video_games}</value>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4A250&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.510" level="INFO">${id} = 1</msg>
+<status status="PASS" starttime="20230921 18:07:48.509" endtime="20230921 18:07:48.510"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.510" level="INFO">${name} = Resident Evil 4</msg>
+<status status="PASS" starttime="20230921 18:07:48.510" endtime="20230921 18:07:48.510"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.511" level="INFO">${release_date} = 2005-10-01T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.511" endtime="20230921 18:07:48.511"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.511" level="INFO">${review_score} = 85</msg>
+<status status="PASS" starttime="20230921 18:07:48.511" endtime="20230921 18:07:48.512"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.512" level="INFO">${category} = Shooter</msg>
+<status status="PASS" starttime="20230921 18:07:48.512" endtime="20230921 18:07:48.512"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.513" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.512" endtime="20230921 18:07:48.513"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.513" endtime="20230921 18:07:48.513"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.513" endtime="20230921 18:07:48.516"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.517" endtime="20230921 18:07:48.517"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.517" endtime="20230921 18:07:48.518"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.518" endtime="20230921 18:07:48.518"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.518" endtime="20230921 18:07:48.519"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.519" endtime="20230921 18:07:48.520"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.509" endtime="20230921 18:07:48.520"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4A7A0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.523" level="INFO">${id} = 2</msg>
+<status status="PASS" starttime="20230921 18:07:48.523" endtime="20230921 18:07:48.523"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.524" level="INFO">${name} = Gran Turismo 3</msg>
+<status status="PASS" starttime="20230921 18:07:48.524" endtime="20230921 18:07:48.524"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.525" level="INFO">${release_date} = 2001-03-10T00:00:00+01:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.525" endtime="20230921 18:07:48.525"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.526" level="INFO">${review_score} = 91</msg>
+<status status="PASS" starttime="20230921 18:07:48.525" endtime="20230921 18:07:48.526"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.526" level="INFO">${category} = Driving</msg>
+<status status="PASS" starttime="20230921 18:07:48.526" endtime="20230921 18:07:48.526"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.527" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.526" endtime="20230921 18:07:48.527"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.527" endtime="20230921 18:07:48.527"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.527" endtime="20230921 18:07:48.528"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.528" endtime="20230921 18:07:48.528"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.528" endtime="20230921 18:07:48.529"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.529" endtime="20230921 18:07:48.529"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.530" endtime="20230921 18:07:48.530"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.531" endtime="20230921 18:07:48.537"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.522" endtime="20230921 18:07:48.537"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4A8E0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.538" level="INFO">${id} = 3</msg>
+<status status="PASS" starttime="20230921 18:07:48.537" endtime="20230921 18:07:48.538"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.538" level="INFO">${name} = Tetris</msg>
+<status status="PASS" starttime="20230921 18:07:48.538" endtime="20230921 18:07:48.538"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.539" level="INFO">${release_date} = 1984-06-25T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.539" endtime="20230921 18:07:48.539"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.540" level="INFO">${review_score} = 88</msg>
+<status status="PASS" starttime="20230921 18:07:48.539" endtime="20230921 18:07:48.540"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.540" level="INFO">${category} = Puzzle</msg>
+<status status="PASS" starttime="20230921 18:07:48.540" endtime="20230921 18:07:48.540"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.541" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.540" endtime="20230921 18:07:48.541"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.541" endtime="20230921 18:07:48.541"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.542" endtime="20230921 18:07:48.542"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.542" endtime="20230921 18:07:48.542"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.543" endtime="20230921 18:07:48.543"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.543" endtime="20230921 18:07:48.544"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.544" endtime="20230921 18:07:48.544"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.544" endtime="20230921 18:07:48.545"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.537" endtime="20230921 18:07:48.545"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4AB10&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.545" level="INFO">${id} = 4</msg>
+<status status="PASS" starttime="20230921 18:07:48.545" endtime="20230921 18:07:48.546"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.547" level="INFO">${name} = Super Mario 64</msg>
+<status status="PASS" starttime="20230921 18:07:48.546" endtime="20230921 18:07:48.547"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.548" level="INFO">${release_date} = 1996-10-20T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.548" endtime="20230921 18:07:48.548"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.549" level="INFO">${review_score} = 90</msg>
+<status status="PASS" starttime="20230921 18:07:48.549" endtime="20230921 18:07:48.549"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.550" level="INFO">${category} = Platform</msg>
+<status status="PASS" starttime="20230921 18:07:48.549" endtime="20230921 18:07:48.550"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.550" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.550" endtime="20230921 18:07:48.550"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.550" endtime="20230921 18:07:48.551"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.552" endtime="20230921 18:07:48.552"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.552" endtime="20230921 18:07:48.553"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.553" endtime="20230921 18:07:48.553"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.554" endtime="20230921 18:07:48.554"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.554" endtime="20230921 18:07:48.554"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.555" endtime="20230921 18:07:48.555"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.545" endtime="20230921 18:07:48.555"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4ACF0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.556" level="INFO">${id} = 5</msg>
+<status status="PASS" starttime="20230921 18:07:48.556" endtime="20230921 18:07:48.556"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.557" level="INFO">${name} = The Legend of Zelda: Ocarina of Time</msg>
+<status status="PASS" starttime="20230921 18:07:48.557" endtime="20230921 18:07:48.557"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.557" level="INFO">${release_date} = 1998-12-10T00:00:00+01:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.557" endtime="20230921 18:07:48.558"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.558" level="INFO">${review_score} = 93</msg>
+<status status="PASS" starttime="20230921 18:07:48.558" endtime="20230921 18:07:48.558"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.559" level="INFO">${category} = Adventure</msg>
+<status status="PASS" starttime="20230921 18:07:48.558" endtime="20230921 18:07:48.559"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.559" level="INFO">${rating} = PG-13</msg>
+<status status="PASS" starttime="20230921 18:07:48.559" endtime="20230921 18:07:48.559"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.560" endtime="20230921 18:07:48.560"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.560" endtime="20230921 18:07:48.561"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.561" endtime="20230921 18:07:48.561"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.561" endtime="20230921 18:07:48.562"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.564" endtime="20230921 18:07:48.567"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.567" endtime="20230921 18:07:48.569"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.570" endtime="20230921 18:07:48.572"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.556" endtime="20230921 18:07:48.572"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4AED0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.573" level="INFO">${id} = 6</msg>
+<status status="PASS" starttime="20230921 18:07:48.572" endtime="20230921 18:07:48.573"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.574" level="INFO">${name} = Doom</msg>
+<status status="PASS" starttime="20230921 18:07:48.573" endtime="20230921 18:07:48.574"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.574" level="INFO">${release_date} = 1993-02-18T00:00:00+01:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.574" endtime="20230921 18:07:48.574"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.575" level="INFO">${review_score} = 81</msg>
+<status status="PASS" starttime="20230921 18:07:48.575" endtime="20230921 18:07:48.575"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.575" level="INFO">${category} = Shooter</msg>
+<status status="PASS" starttime="20230921 18:07:48.575" endtime="20230921 18:07:48.575"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.576" level="INFO">${rating} = Mature</msg>
+<status status="PASS" starttime="20230921 18:07:48.576" endtime="20230921 18:07:48.576"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.576" endtime="20230921 18:07:48.576"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.577" endtime="20230921 18:07:48.577"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.577" endtime="20230921 18:07:48.588"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.588" endtime="20230921 18:07:48.589"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.589" endtime="20230921 18:07:48.589"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.590" endtime="20230921 18:07:48.591"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.591" endtime="20230921 18:07:48.591"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.572" endtime="20230921 18:07:48.591"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4B0B0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.593" level="INFO">${id} = 7</msg>
+<status status="PASS" starttime="20230921 18:07:48.592" endtime="20230921 18:07:48.593"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.593" level="INFO">${name} = Minecraft</msg>
+<status status="PASS" starttime="20230921 18:07:48.593" endtime="20230921 18:07:48.594"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.597" level="INFO">${release_date} = 2011-12-05T00:00:00+01:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.594" endtime="20230921 18:07:48.597"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.606" level="INFO">${review_score} = 77</msg>
+<status status="PASS" starttime="20230921 18:07:48.597" endtime="20230921 18:07:48.607"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.608" level="INFO">${category} = Puzzle</msg>
+<status status="PASS" starttime="20230921 18:07:48.607" endtime="20230921 18:07:48.608"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.614" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.609" endtime="20230921 18:07:48.614"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.615" endtime="20230921 18:07:48.616"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.616" endtime="20230921 18:07:48.617"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.617" endtime="20230921 18:07:48.618"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.618" endtime="20230921 18:07:48.619"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.619" endtime="20230921 18:07:48.620"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.620" endtime="20230921 18:07:48.620"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.621" endtime="20230921 18:07:48.621"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.592" endtime="20230921 18:07:48.622"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4B290&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.623" level="INFO">${id} = 8</msg>
+<status status="PASS" starttime="20230921 18:07:48.622" endtime="20230921 18:07:48.623"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.623" level="INFO">${name} = SimCity 2000</msg>
+<status status="PASS" starttime="20230921 18:07:48.623" endtime="20230921 18:07:48.624"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.624" level="INFO">${release_date} = 1994-09-11T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.624" endtime="20230921 18:07:48.625"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.625" level="INFO">${review_score} = 88</msg>
+<status status="PASS" starttime="20230921 18:07:48.625" endtime="20230921 18:07:48.625"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.628" level="INFO">${category} = Strategy</msg>
+<status status="PASS" starttime="20230921 18:07:48.626" endtime="20230921 18:07:48.628"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.629" level="INFO">${rating} = Universal</msg>
+<status status="PASS" starttime="20230921 18:07:48.628" endtime="20230921 18:07:48.629"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.630" endtime="20230921 18:07:48.633"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.633" endtime="20230921 18:07:48.634"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.634" endtime="20230921 18:07:48.635"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.636" endtime="20230921 18:07:48.636"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.637" endtime="20230921 18:07:48.640"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.640" endtime="20230921 18:07:48.641"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.642" endtime="20230921 18:07:48.649"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.622" endtime="20230921 18:07:48.649"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4B470&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.650" level="INFO">${id} = 9</msg>
+<status status="PASS" starttime="20230921 18:07:48.649" endtime="20230921 18:07:48.650"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.650" level="INFO">${name} = Final Fantasy VII</msg>
+<status status="PASS" starttime="20230921 18:07:48.650" endtime="20230921 18:07:48.651"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.651" level="INFO">${release_date} = 1997-08-20T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.651" endtime="20230921 18:07:48.651"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.652" level="INFO">${review_score} = 97</msg>
+<status status="PASS" starttime="20230921 18:07:48.651" endtime="20230921 18:07:48.652"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.653" level="INFO">${category} = RPG</msg>
+<status status="PASS" starttime="20230921 18:07:48.652" endtime="20230921 18:07:48.653"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.653" level="INFO">${rating} = PG-13</msg>
+<status status="PASS" starttime="20230921 18:07:48.653" endtime="20230921 18:07:48.653"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.654" endtime="20230921 18:07:48.654"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.654" endtime="20230921 18:07:48.655"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.655" endtime="20230921 18:07:48.656"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.656" endtime="20230921 18:07:48.657"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.658" endtime="20230921 18:07:48.660"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.661" endtime="20230921 18:07:48.661"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.662" endtime="20230921 18:07:48.663"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.649" endtime="20230921 18:07:48.663"/>
+</iter>
+<iter>
+<var name="${video_game}">&lt;Element 'videoGame' at 0x00000254D2C4B6A0&gt;</var>
+<kw name="Get Element Text" library="XML">
+<var>${id}</var>
+<arg>${video_game}</arg>
+<arg>id</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.664" level="INFO">${id} = 10</msg>
+<status status="PASS" starttime="20230921 18:07:48.664" endtime="20230921 18:07:48.664"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${name}</var>
+<arg>${video_game}</arg>
+<arg>name</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.664" level="INFO">${name} = Grand Theft Auto III</msg>
+<status status="PASS" starttime="20230921 18:07:48.664" endtime="20230921 18:07:48.664"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${release_date}</var>
+<arg>${video_game}</arg>
+<arg>releaseDate</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.665" level="INFO">${release_date} = 2001-04-23T00:00:00+02:00</msg>
+<status status="PASS" starttime="20230921 18:07:48.665" endtime="20230921 18:07:48.665"/>
+</kw>
+<kw name="Get Element Text" library="XML">
+<var>${review_score}</var>
+<arg>${video_game}</arg>
+<arg>reviewScore</arg>
+<doc>Returns all text of the element, possibly whitespace normalized.</doc>
+<msg timestamp="20230921 18:07:48.666" level="INFO">${review_score} = 90</msg>
+<status status="PASS" starttime="20230921 18:07:48.665" endtime="20230921 18:07:48.666"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${category}</var>
+<arg>${video_game}</arg>
+<arg>category</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.670" level="INFO">${category} = Driving</msg>
+<status status="PASS" starttime="20230921 18:07:48.667" endtime="20230921 18:07:48.670"/>
+</kw>
+<kw name="Get Element Attribute" library="XML">
+<var>${rating}</var>
+<arg>${video_game}</arg>
+<arg>rating</arg>
+<doc>Returns the named attribute of the specified element.</doc>
+<msg timestamp="20230921 18:07:48.670" level="INFO">${rating} = Mature</msg>
+<status status="PASS" starttime="20230921 18:07:48.670" endtime="20230921 18:07:48.670"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game ID: ${id}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.673" endtime="20230921 18:07:48.673"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Video game name: ${name}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.673" endtime="20230921 18:07:48.674"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Release date: ${release_date}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.674" endtime="20230921 18:07:48.674"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Review score: ${review_score}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.674" endtime="20230921 18:07:48.675"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Category: ${category}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.675" endtime="20230921 18:07:48.676"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Rating: ${rating}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.676" endtime="20230921 18:07:48.677"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>&lt;=#######################################################################=&gt;</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.677" endtime="20230921 18:07:48.678"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.664" endtime="20230921 18:07:48.678"/>
+</iter>
+<status status="PASS" starttime="20230921 18:07:48.509" endtime="20230921 18:07:48.678"/>
+</for>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${game_data}</var>
+<arg>id=${id}</arg>
+<arg>name=${name}</arg>
+<arg>releaseDate=${release_date}</arg>
+<arg>reviewScore=${review_score}</arg>
+<arg>category=${category}</arg>
+<arg>rating = ${rating}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230921 18:07:48.679" level="INFO">${game_data} = {'id': '10', 'name': 'Grand Theft Auto III', 'releaseDate': '2001-04-23T00:00:00+02:00', 'reviewScore': '90', 'category': 'Driving', 'rating ': ' Mature'}</msg>
+<status status="PASS" starttime="20230921 18:07:48.678" endtime="20230921 18:07:48.679"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${json_data}</var>
+<arg>json.dumps(${game_data})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230921 18:07:48.680" level="INFO">${json_data} = {"id": "10", "name": "Grand Theft Auto III", "releaseDate": "2001-04-23T00:00:00+02:00", "reviewScore": "90", "category": "Driving", "rating ": " Mature"}</msg>
+<status status="PASS" starttime="20230921 18:07:48.680" endtime="20230921 18:07:48.680"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>JSON data: ${json_data}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230921 18:07:48.680" endtime="20230921 18:07:48.681"/>
+</kw>
+<status status="PASS" starttime="20230921 18:07:48.476" endtime="20230921 18:07:48.682"/>
+</test>
+<status status="PASS" starttime="20230921 18:07:48.123" endtime="20230921 18:07:48.682"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Get List Videogames">Get List Videogames</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230921 18:07:48.323" level="WARN">XML library reverted to use standard ElementTree because lxml module is not installed.</msg>
+<msg timestamp="20230921 18:07:48.480" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+</errors>
+</robot>
